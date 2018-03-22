@@ -36,7 +36,7 @@ def textmessage( bot, update ):
     request.session_id = 'PotatoAiBot'
     request.query = update.message.text
     responseJson = json.loads(request.getresponse().read().decode('utf-8'))
-    response = responseJson['result']['fulfillment']['speech']  # Разбираем JSON и вытаскиваем ответ
+    response = responseJson['result']['fulfillment']['speech']
     if response:
         bot.send_message(chat_id=update.message.chat_id, text=response)
     else:
